@@ -1,0 +1,4 @@
+core = "7.x"
+description = "Allows you to pull in data that Google Analytics has gathered for your site and use it in Views."
+name = "Google Analytics Statistics"
+package = "Statistics"
