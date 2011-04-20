@@ -198,6 +198,13 @@ function ga_stats_admin_settings() {
     '#description' => t('The timeframes that will be available from Google Analytics in Views.')
   );
   
+  $form['ga_stats_max_results'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Max Results per Metric/Timeframe'),
+    '#description' => t('The max results that a call (a metric/timeframe combination) can return. MUST be a number.'),
+    '#default_value' => variable_get('ga_stats_max_results', '100')
+  );
+  
   if(variable_get('ga_stats_profile', false)){
     $form['actions']['ga_stats_update'] = array(
       '#type' => 'button',

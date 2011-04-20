@@ -27,7 +27,7 @@ function ga_stats_ga_data($metrics, $start_date = 0, $end_date = 0, $filter=fals
     $request['end_date'] = null;
   
   $request['sort_metric'] = "-".$metrics[0];
-  $request['max_results'] = "100";
+  $request['max_results'] = variable_get('ga_stats_max_results', "100");
   
   if($filter){
     $request['filter'] = $filter;
