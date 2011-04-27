@@ -57,7 +57,7 @@ function ga_stats_ga_metrics($all=false) {
   if(!$all){
     $enabled = variable_get('ga_stats_enabled_metrics', array('pageviews'));
     foreach($metrics as $k=>$v){
-      if(!in_array($k, $enabled)){
+      if(!$enabled[$k]){
         unset($metrics[$k]);
       }
     }
@@ -91,7 +91,7 @@ function ga_stats_ga_timeframes($just_keys=false, $all=false){
   if(!$all){
     $enabled = variable_get('ga_stats_enabled_timeframes', array('today', 'month'));
     foreach($timeframes as $k=>$v){
-      if(!in_array($k, $enabled)){
+      if(!$enabled[$k]){
         unset($timeframes[$k]);
       }
     }
@@ -115,7 +115,6 @@ function ga_stats_ga_data_array($data_in) {
 function ga_stats_ga_get_accounts(){
   require_once 'gapi.class.php';
   
-  //TODO: Need to add a form to set these settings
   $user = variable_get('ga_stats_email', '');
   $password = variable_get('ga_stats_password', '');
     
