@@ -121,7 +121,7 @@ function ga_stats_ga_get_accounts(){
   if($user && $password){
     try{
       $ga = new gapi($user, $password);
-      $accounts = $ga->requestAccountData(); 
+      $accounts = $ga->requestAccountData(1, 5000); 
       return $accounts;
     } catch (Exception $e) {
       drupal_set_message('Invalid Google Analytics login.', 'error');
